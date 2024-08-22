@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Liberary</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     <header>
@@ -32,7 +34,7 @@
                      <option value="fantasy">Fantasy</option>
                  </select>
                 <button type="submit">Save Book</button>
-                <button>Delete Book</button>
+                
             </form>
         </section>
 
@@ -54,9 +56,22 @@
 
         <section id="book-list-section">
             <h2>Your Book Collection</h2>
-            <ul id="book-list">
-                <!-- Book items will be dynamically added here -->
-            </ul>
+            <table class="table-content" >
+                <thead >
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Year</th>
+                        <th>Category</th>
+                        <th>Tags</th>
+                    </tr>
+                    <tbody id="book-table-body">
+                          <!-- Book items will be dynamically added here -->
+                    </tbody>
+                </thead>
+
+            </table>
         </section>
 
         <section id="book-stats-section">
