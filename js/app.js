@@ -1,4 +1,3 @@
-
 class Book {
     constructor(id, title, author, isbn, year, tags, category) {
         this.id = id || Date.now(); 
@@ -14,6 +13,8 @@ class Book {
 class BookManager {
     constructor() {
         this.books = JSON.parse(localStorage.getItem('books')) || [];
+        this.categoryChartInstance = null; 
+        this.yearChartInstance = null; 
         this.initEventListeners();
         this.displayBooks(this.books);
         this.updateCharts();
@@ -98,10 +99,14 @@ class BookManager {
                 <td>${book.category}</td>
                 <td>${book.tags.join(', ')}</td>
                 <td>
-                    <button onclick="bookManager.editBook(${book.id})">Edit</button>
-                    <button onclick="bookManager.deleteBook(${book.id})">Delete</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
                 </td>
             `;
+
+            // Attach event listeners to the buttons
+            row.querySelector('.edit-btn').addEventListener('click', () => this.editBook(book.id));
+            row.querySelector('.delete-btn').addEventListener('click', () => this.deleteBook(book.id));
 
             bookTableBody.appendChild(row);
         });
@@ -136,13 +141,20 @@ class BookManager {
             return acc;
         }, {});
 
-        this.renderChart('categoryChart', 'Books per Category', categories);
-        this.renderChart('yearChart', 'Books per Publication Year', years);
+        this.renderChart('categoryChart', 'Books per Category', categories, this.categoryChartInstance);
+        this.renderChart('yearChart', 'Books per Publication Year', years, this.yearChartInstance);
     }
 
-    renderChart(elementId, label, data) {
+    renderChart(elementId, label, data, chartInstance) {
         const ctx = document.getElementById(elementId).getContext('2d');
-        new Chart(ctx, {
+
+        // Destroy the existing chart if it exists
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
+
+        // Create a new chart instance and store it in the variable
+        chartInstance = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: Object.keys(data),
@@ -162,8 +174,10 @@ class BookManager {
                 }
             }
         });
-    }
-}
 
-// Initialize the BookManager instance
+        return chartInstance;
+    }
+    }
+
+
 const bookManager = new BookManager();
