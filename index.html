@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Liberary</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -13,7 +13,7 @@
         <h1 class="bg-header">Book Tracker</h1>
         
     </header>
-   
+    <div class="grid">
     <main>
         <section id="book-form-section">
             <h2>Add/Edit Book</h2>
@@ -54,7 +54,7 @@
             </select>
         </section>
 
-        <section id="book-list-section">
+        <section id="book-list-section" class="table-container">
             <h2>Your Book Collection</h2>
             <table class="table-content" >
                 <thead >
@@ -65,6 +65,8 @@
                         <th>Year</th>
                         <th>Category</th>
                         <th>Tags</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                     <tbody id="book-table-body">
                           <!-- Book items will be dynamically added here -->
@@ -74,21 +76,22 @@
             </table>
         </section>
 
-        <section id="book-stats-section">
+        <section id="book-stats-section" class="chart-container">
             <h2>Book Statistics</h2>
-            <div class="chart-container">
+            <div >
                 <h3>Books per Category</h3>
                 <canvas id="categoryChart" width="400" height="200"></canvas>
             </div>
         
-            <div class="chart-container">
+            <div ">
                 <h3>Books per Publication Year</h3>
                 <canvas id="yearChart" width="400" height="200"></canvas>
             </div>
         </section>
     </main>
     <section class="footer"></section>
-    <script type="module" src="js/app.js"></script>
+</div>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
 
