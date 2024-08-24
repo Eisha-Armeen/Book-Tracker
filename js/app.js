@@ -87,20 +87,21 @@ class BookManager {
     displayBooks(books) {
         const bookTableBody = document.getElementById('book-table-body');
         bookTableBody.innerHTML = '';
-
         books.forEach(book => {
             const row = document.createElement('tr');
 
             row.innerHTML = `
-                <td>${book.title}</td>
-                <td>${book.author}</td>
-                <td>${book.isbn}</td>
-                <td>${book.year}</td>
-                <td>${book.category}</td>
-                <td>${book.tags.join(', ')}</td>
+                <td data-label="Title">${book.title}</td>
+                <td data-label="Author">${book.author}</td>
+                <td data-label="ISBN">${book.isbn}</td>
+                <td data-label="Year">${book.year}</td>
+                <td data-label="Category">${book.category}</td>
+                <td data-label="Tags">${book.tags.join(', ')}</td>
                 <td>
                     <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button>
+                </td>
+                <td>
+                  <button class="delete-btn">Delete</button>
                 </td>
             `;
 
