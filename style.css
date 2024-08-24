@@ -1,0 +1,215 @@
+ body {
+font-family: Arial, sans-serif;
+
+}
+
+header {
+          
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../images/bg-header.jpg');
+    background-size: cover; 
+    background-position: center;  
+    height: 15vh;
+    
+}
+.bg-header{
+        
+color: white;
+text-align: center;
+padding: 30px 0;
+}
+
+main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color:rgba(0, 0, 0, 0.01);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+           
+          
+ }
+
+h1 {
+            margin-bottom: 20px;
+}
+form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+ }
+form input, form select{
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+}
+
+form button {
+   
+    padding: 10px;
+    margin: 8px 0;
+    margin-left: 40%;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: rgb(224, 56, 56);
+    color: white;
+    width: 120px;
+    
+}
+form button:hover {
+    background-color: wheat;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#search{
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+.search-btn{
+    padding: 10px;
+    margin: 8px 0;
+    margin-left: 15px;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: rgb(224, 56, 56);
+    color: white;
+    width: 100px;
+}
+.search-btn:hover{
+    background-color: wheat;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.book-list {
+            margin-top: 20px;
+}
+.book-list-item {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+ }
+
+.book-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#category-filter {
+    margin-top: 20px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+#label-text{
+    display: block;
+   margin-top: 1%;
+   margin-bottom: 1%;
+}
+.chart-container {
+  
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    flex:1;
+  
+}
+
+canvas {
+
+    margin-bottom: 50px;
+}
+.footer{
+    background-color: rgb(224, 56, 56);
+    height: 30px;
+    margin-top: 1%;
+}
+
+.table-content{
+    
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 100%;
+    border-spacing: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+.table-content thead tr{
+    background-color: rgb(224, 56, 56) ;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+.table-content th,.table-content td{
+    padding: 12px 15px;
+}
+.table-content tr{
+    border-bottom: 1px solid rgb(194, 187, 187);
+}
+.table-content tbody tr:last-of-type{
+    border-bottom: 2px solid  rgb(224, 56, 56);
+}
+@media(max-width:668px){
+     .table-content thead {
+        display: none;
+     }
+    .table-content,.table-content tbody,.table-content tr,.table-content td{
+        display: block;
+        width: 100%;
+    }
+    .table-content {
+    border-top:10px solid  rgb(224, 56, 56);
+}
+
+    .table-content tr{
+        margin-bottom: 15px;
+        margin-left: 15px;
+       
+    }
+    .table-content tbody tr td{
+        text-align: left;
+       margin-left: 40%;
+       
+    } 
+    .table-content td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+       margin-left: 10%;
+        font-weight: 600;
+        font-size: 14px;
+        padding-left: 15px;
+        text-align: left;
+    }
+}
+.table-content tbody tr td button{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: rgb(224, 56, 56);
+    color: white;
+    width: 90px; ;
+    align-items: center;
+   
+}
+
+.table-content tbody tr td button:hover{
+
+background-color: wheat;
+color: black;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
