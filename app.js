@@ -7,6 +7,7 @@ class Book {
         this.year = year;
         this.tags = tags.split(',').map(tag => tag.trim());
         this.category = category;
+        this.rating = rating; 
     }
 }
 
@@ -34,9 +35,10 @@ class BookManager {
         const year = document.getElementById('year').value;
         const tags = document.getElementById('tags').value;
         const category = document.getElementById('book-category').value;
+        const rating = document.getElementById('rating').value;
         const id = document.getElementById('book-id').value;
 
-        if (!title || !author || !isbn || !year || !category) {
+        if (!title || !author || !isbn || !year || !category|| !rating) {
             alert('Please fill out all required fields.');
             return;
         }
@@ -45,11 +47,11 @@ class BookManager {
             // Editing an existing book
             const bookIndex = this.books.findIndex(book => book.id === parseInt(id));
             if (bookIndex !== -1) {
-                this.books[bookIndex] = new Book(id, title, author, isbn, year, tags, category);
+                this.books[bookIndex] = new Book(id, title, author, isbn, year, tags, category, rating);
             }
         } else {
             // Adding a new book
-            const newBook = new Book(null, title, author, isbn, year, tags, category);
+            const newBook = new Book(null, title, author, isbn, year, tags, category, rating);
             this.books.push(newBook);
         }
 
@@ -81,6 +83,7 @@ class BookManager {
             document.getElementById('year').value = book.year;
             document.getElementById('tags').value = book.tags.join(', ');
             document.getElementById('book-category').value = book.category;
+            document.getElementById('rating').value = book.rating;
         }
     }
 
@@ -97,6 +100,7 @@ class BookManager {
                 <td data-label="Year">${book.year}</td>
                 <td data-label="Category">${book.category}</td>
                 <td data-label="Tags">${book.tags.join(', ')}</td>
+                <td data-label="Rating">${book.rating}</td>
                 <td>
                     <button class="edit-btn">Edit</button>
                 </td>
@@ -130,6 +134,10 @@ class BookManager {
             : this.books.filter(book => book.category === category);
         this.displayBooks(filteredBooks);
     }
+    sortBooksByRating() {
+        this.books.sort((a, b) => b.rating - a.rating);
+        this.displayBooks(this.books);
+    }    
 
     updateCharts() {
         const categories = this.books.reduce((acc, book) => {
